@@ -1,10 +1,18 @@
 <template>
     <li>
         {{ todo.name }}
-        <button>Supprimer</button>
+        <button @click="deleteTodo">Supprimer</button>
     </li>
 </template>
 
 <script setup lang="ts">
-const { todo } = defineProps<{todo: {id: number, name: string, completed: boolean}}>()
+import { defineProps, defineEmits } from 'vue'
+
+const props = defineProps<{ todo: { id: number, name: string, completed: boolean } }>()
+const emit = defineEmits(['delete'])
+
+// Emit the delete event with the todo's id
+const deleteTodo = () => {
+    emit('delete', props.todo.id)
+}
 </script>
