@@ -1,7 +1,7 @@
 <template>
     <li>
         {{ todo.name }}
-        <button @click="deleteTodo">Supprimer</button>
+        <button @click="deleteTodo">Delete</button>
     </li>
 </template>
 
